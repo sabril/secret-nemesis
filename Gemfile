@@ -7,13 +7,12 @@ gem 'json'
 gem 'jquery-rails'
 gem "devise"
 gem 'thin'
-
+  
 gem 'fastercsv'
 gem 'nokogiri'
 gem "ckeditor", "3.7.0.rc3"
 gem 'paperclip'
 gem 'rails3-generators'
-gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'paper_trail', '~> 2'
 gem 'rails3-jquery-autocomplete'
 gem 'annotate'

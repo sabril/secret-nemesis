@@ -15,7 +15,7 @@ task :fetch_patents => :environment do
   button = form.button_with(:value => "Accept")
   agent.submit(form, button)
 
-  until i == 2012900001
+  until i == 2000000000
 
     if Patent.find_all_by_application_number(i).count == 0
 

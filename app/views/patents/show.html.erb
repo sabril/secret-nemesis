@@ -1,0 +1,39 @@
+<%- model_class = @patent.class -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:permalink) %>:</strong></dt>
+  <dd><%= @patent.permalink %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:application_number) %>:</strong></dt>
+  <dd><%= @patent.application_number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:application_type) %>:</strong></dt>
+  <dd><%= @patent.application_type %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:application_status) %>:</strong></dt>
+  <dd><%= @patent.application_status %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:under_opposition) %>:</strong></dt>
+  <dd><%= @patent.under_opposition %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:proceeding_type) %>:</strong></dt>
+  <dd><%= @patent.proceeding_type %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:invention_title) %>:</strong></dt>
+  <dd><%= @patent.invention_title %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:inventor) %>:</strong></dt>
+  <dd><%= @patent.inventor %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:agent_name) %>:</strong></dt>
+  <dd><%= @patent.agent_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:address_for_service) %>:</strong></dt>
+  <dd><%= @patent.address_for_service %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:filing_date) %>:</strong></dt>
+  <dd><%= @patent.filing_date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:associated_companies) %>:</strong></dt>
+  <dd><%= @patent.associated_companies %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:applicant_name) %>:</strong></dt>
+  <dd><%= @patent.applicant_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:applicant_address) %>:</strong></dt>
+  <dd><%= @patent.applicant_address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:old_name) %>:</strong></dt>
+  <dd><%= @patent.old_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:source_url) %>:</strong></dt>
+  <dd><%= @patent.source_url %></dd>
+</dl>

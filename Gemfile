@@ -26,6 +26,7 @@ gem 'acts_as_list'
 gem 'jquery-ui-rails'
 gem "tabletastic"
 gem 'memcachier'
+gem "mechanize"
 
 gem 'aws-s3'
 gem 'aws-sdk'
@@ -39,4 +40,5 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
+  gem 'twitter-bootstrap-rails'
 end

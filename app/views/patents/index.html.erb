@@ -1,0 +1,58 @@
+<%- model_class = Patent.new.class -%>
+
+
+
+	<div class="page-header">
+	  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+	</div>
+	
+	<ul class="nav nav-pills">
+	  <li class="active">
+	   <a href="/">Recently added</a>
+	  </li>
+	  <li>
+	   <a href="/">Provisional</a>
+	  </li>
+	  <li>
+	   <a href="/">Non-Provisional</a>
+	  </li>
+	</ul>
+	
+	
+	<table class="table table-striped">
+	  <thead>
+	    <tr>
+	      <th><%= model_class.human_attribute_name(:invention_title) %></th>
+	      <th><%= model_class.human_attribute_name(:application_number) %></th>
+	      <th><%= model_class.human_attribute_name(:application_type) %></th>
+	      <th><%= model_class.human_attribute_name(:filing_date) %></th>
+	      <th><%= model_class.human_attribute_name(:applicant_name) %></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <% @patents.each do |patent| %>
+	      <tr>
+	        <td><%= link_to patent.invention_title, patent_path(patent) %></td>
+	        <td><%= patent.application_number %></td>
+	        <td><%= patent.application_type %></td>
+	        <td><%= patent.filing_date %></td>
+	        <td><%= patent.applicant_name %></td>
+	     </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+
+
+	<div class="pagination">
+	  <ul>
+	    <li><a href="#">Prev</a></li>
+	    <li class="active">
+	      <a href="#">1</a>
+	    </li>
+	    <li><a href="#">2</a></li>
+	    <li><a href="#">3</a></li>
+	    <li><a href="#">4</a></li>
+	    <li><a href="#">Next</a></li>
+	  </ul>
+	</div>
+

@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  application_number: 1
+  application_type: MyString
+  application_status: MyString
+  under_opposition: MyString
+  proceeding_type: MyString
+  invention_title: MyString
+  inventor: MyString
+  agent_name: MyString
+  address_for_service: MyString
+  filing_date: MyString
+  associated_companies: MyString
+  applicant_name: MyString
+  applicant_address: MyString
+  old_name: MyString
+
+two:
+  id: 1
+  application_number: 1
+  application_type: MyString
+  application_status: MyString
+  under_opposition: MyString
+  proceeding_type: MyString
+  invention_title: MyString
+  inventor: MyString
+  agent_name: MyString
+  address_for_service: MyString
+  filing_date: MyString
+  associated_companies: MyString
+  applicant_name: MyString
+  applicant_address: MyString
+  old_name: MyString

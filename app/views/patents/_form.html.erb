@@ -1,0 +1,104 @@
+<%= form_for @patent, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :permalink, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :permalink, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :application_number, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :application_number, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :application_type, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :application_type, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :application_status, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :application_status, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :under_opposition, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :under_opposition, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :proceeding_type, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :proceeding_type, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :invention_title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :invention_title, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :inventor, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :inventor, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :agent_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :agent_name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :address_for_service, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :address_for_service, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :filing_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :filing_date, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :associated_companies, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :associated_companies, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :applicant_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :applicant_name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :applicant_address, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :applicant_address, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :old_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :old_name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :source_url, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :source_url, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                patent_path, :class => 'btn' %>
+  </div>
+<% end %>

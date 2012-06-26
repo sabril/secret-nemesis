@@ -217,7 +217,9 @@ DEPENDENCIES
   gmaps4rails
   hirefireapp
   htmlentities
+  jquery-rails
   jquery-ui-rails
+  json
   kaminari
   mechanize
   memcachier

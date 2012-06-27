@@ -7,7 +7,7 @@ task :fetch_patents => :environment do
   agent = Mechanize.new
   agent.keep_alive = false
   
-  i = ENV['start_at']
+  i = ENV['start_at'].to_i
 
   url = "http://pericles.ipaustralia.gov.au/ols/auspat/applicationDetails.do?applicationNo=" + i.to_s
   agent.get(url)

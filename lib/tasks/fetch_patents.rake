@@ -24,7 +24,7 @@ task :fetch_patents => :environment do
 
       application_no = year.to_s + i.to_s.rjust(6, '0')
 
-      if Patent.find_all_by_application_number(application_no).count == 0 && application_no > start_at
+      if Patent.find_all_by_application_number(application_no).count == 0 && application_no.to_i > start_at
 
         url = "http://pericles.ipaustralia.gov.au/ols/auspat/applicationDetails.do?applicationNo=" + application_no.to_s
         agent.get(url)
@@ -59,7 +59,7 @@ task :fetch_patents => :environment do
 
       else
 
-        puts application_no.to_s + " -- already exists in database"
+        puts application_no.to_s + " -- already exists or under start_at"
 
       end
 

@@ -18,6 +18,7 @@ task :fetch_patents => :environment do
   (2000..2012).each do |year|
 
     failures = 0
+    i = 0
 
     until i == 909000
 

@@ -9,7 +9,7 @@ task :fetch_patents => :environment do
 
   start_at = ENV['start_at'].to_i
 
-  url = "http://pericles.ipaustralia.gov.au/ols/auspat/applicationDetails.do?applicationNo=" + i.to_s
+  url = "http://pericles.ipaustralia.gov.au/ols/auspat/applicationDetails.do?applicationNo=2012900644"
   agent.get(url)
   form = agent.page.form
   button = form.button_with(:value => "Accept")

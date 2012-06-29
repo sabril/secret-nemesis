@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b85e66b-2110-4e98-bad4-ca1173ff0291" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.rakeTasks" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/patentlookup.iml" afterPath="$PROJECT_DIR$/.idea/patentlookup.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/tasks/fetch_patents.rake" afterPath="$PROJECT_DIR$/lib/tasks/fetch_patents.rake" />
     </list>
     <ignored path="patentlookup.iws" />
@@ -39,7 +36,7 @@
       <file leaf-file-name="fetch_patents.rake" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/tasks/fetch_patents.rake">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="23" selection-start="2547" selection-end="2547" vertical-scroll-proportion="0.6870229">
+            <state line="25" column="102" selection-start="639" selection-end="639" vertical-scroll-proportion="0.57251906">
               <folding />
             </state>
           </provider>
@@ -544,7 +541,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/tasks/fetch_patents.rake">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="23" selection-start="2547" selection-end="2547" vertical-scroll-proportion="0.6870229">
+        <state line="25" column="102" selection-start="639" selection-end="639" vertical-scroll-proportion="0.57251906">
           <folding />
         </state>
       </provider>

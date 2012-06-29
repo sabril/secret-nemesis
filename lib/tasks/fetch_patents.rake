@@ -7,7 +7,7 @@ task :fetch_patents => :environment do
   agent = Mechanize.new
   agent.keep_alive = false
 
-  i = ENV['start_at'].to_i
+  start_at = ENV['start_at'].to_i
 
   url = "http://pericles.ipaustralia.gov.au/ols/auspat/applicationDetails.do?applicationNo=" + i.to_s
   agent.get(url)
@@ -23,7 +23,7 @@ task :fetch_patents => :environment do
 
       application_no = year.to_s + i.to_s.rjust(6, '0')
 
-      if Patent.find_all_by_application_number(application_no).count == 0
+      if Patent.find_all_by_application_number(application_no).count == 0 && application_no > start_at
 
         url = "http://pericles.ipaustralia.gov.au/ols/auspat/applicationDetails.do?applicationNo=" + application_no.to_s
         agent.get(url)

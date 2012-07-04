@@ -8,6 +8,8 @@ task :fetch_patents => :environment do
   agent.keep_alive = false
 
   start_at = ENV['start_at'].to_i
+  start_at_year = start_at.to_s[0..3].to_i
+  start_at_i = start_at.to_s[4..start_at.to_s.length].to_i
 
   url = "http://pericles.ipaustralia.gov.au/ols/auspat/applicationDetails.do?applicationNo=2012900644"
   agent.get(url)
@@ -15,16 +17,23 @@ task :fetch_patents => :environment do
   button = form.button_with(:value => "Accept")
   agent.submit(form, button)
 
-  (2000..2012).each do |year|
+  (start_at_year..2012).each do |year|
 
     failures = 0
-    i = 0
+
+    if year==start_at_year
+      i = start_at_i
+    else
+      i = 0
+    end
+
+    puts "skipping to " + start_at_year.to_s + start_at_i.to_s
 
     until i == 909000
 
       application_no = year.to_s + i.to_s.rjust(6, '0')
 
-      if Patent.find_all_by_application_number(application_no).count == 0 && application_no.to_i > start_at
+      if Patent.find_all_by_application_number(application_no).count == 0
 
         url = "http://pericles.ipaustralia.gov.au/ols/auspat/applicationDetails.do?applicationNo=" + application_no.to_s
         agent.get(url)
@@ -59,7 +68,7 @@ task :fetch_patents => :environment do
 
       else
 
-        puts application_no.to_s + " -- already exists or under start_at"
+        puts application_no.to_s + " -- already exists"
 
       end
 

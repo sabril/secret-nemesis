@@ -1,20 +1,23 @@
 <%- model_class = Patent.new.class -%>
 
+<div class="container">
+
+  <div class="row">
 
 
-	<div class="page-header">
+  <div class="page-header">
 	  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 	</div>
 	
 	<ul class="nav nav-pills">
 	  <li class="active">
-	   <a href="/">Recently added</a>
+	   <a href="?recent">Recently added</a>
 	  </li>
 	  <li>
-	   <a href="/">Provisional</a>
+	   <a href="?provisional">Provisional</a>
 	  </li>
 	  <li>
-	   <a href="/">Non-Provisional</a>
+	   <a href="?standard">Standard</a>
 	  </li>
 	</ul>
 	
@@ -56,3 +59,5 @@
 	  </ul>
 	</div>
 
+         </div>
+    </div>

@@ -11,6 +11,9 @@ task :fetch_patents => :environment do
   start_at_year = start_at.to_s[0..3].to_i
   start_at_i = start_at.to_s[4..start_at.to_s.length].to_i
 
+  puts "start_at_year: " + start_at_year.to_s
+  puts "start_at_i: " + start_at_i.to_s
+
   url = "http://pericles.ipaustralia.gov.au/ols/auspat/applicationDetails.do?applicationNo=2012900644"
   agent.get(url)
   form = agent.page.form
@@ -29,7 +32,7 @@ task :fetch_patents => :environment do
 
     puts "skipping to " + start_at_year.to_s + start_at_i.to_s
 
-    until i == 909000
+    until i >= 909000
 
       application_no = year.to_s + i.to_s.rjust(6, '0')
 

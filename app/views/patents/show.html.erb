@@ -1,11 +1,10 @@
 <%- model_class = @patent.class -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+  <h2><%= @patent.invention_title %></h2>
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:permalink) %>:</strong></dt>
-  <dd><%= @patent.permalink %></dd>
+
   <dt><strong><%= model_class.human_attribute_name(:application_number) %>:</strong></dt>
   <dd><%= @patent.application_number %></dd>
   <dt><strong><%= model_class.human_attribute_name(:application_type) %>:</strong></dt>

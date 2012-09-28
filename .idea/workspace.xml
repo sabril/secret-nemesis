@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b85e66b-2110-4e98-bad4-ca1173ff0291" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/patents/show.html.erb" afterPath="$PROJECT_DIR$/app/views/patents/show.html.erb" />
-    </list>
+    <list default="true" id="0b85e66b-2110-4e98-bad4-ca1173ff0291" name="Default" comment="" />
     <ignored path="patentlookup.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,7 +25,7 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/patents/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="10" selection-start="1566" selection-end="1566" vertical-scroll-proportion="-0.625">
+            <state line="62" column="10" selection-start="1566" selection-end="1566" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -44,10 +40,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fetch_patents.rake" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="fetch_patents.rake" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/tasks/fetch_patents.rake">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="17" selection-start="733" selection-end="733" vertical-scroll-proportion="0.0">
+            <state line="31" column="17" selection-start="733" selection-end="733" vertical-scroll-proportion="0.7311321">
               <folding />
             </state>
           </provider>
@@ -56,16 +52,16 @@
       <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="15" selection-start="915" selection-end="915" vertical-scroll-proportion="-14.5">
+            <state line="25" column="15" selection-start="915" selection-end="915" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="show.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/patents/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="25" selection-start="137" selection-end="137" vertical-scroll-proportion="0.12155592">
+            <state line="5" column="25" selection-start="137" selection-end="137" vertical-scroll-proportion="-3.125">
               <folding />
             </state>
           </provider>
@@ -101,10 +97,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="349" />
-    <option name="y" value="22" />
-    <option name="width" value="1091" />
-    <option name="height" value="787" />
+    <option name="x" value="-1267" />
+    <option name="y" value="78" />
+    <option name="width" value="1047" />
+    <option name="height" value="795" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -592,14 +588,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="349" y="22" width="1091" height="787" extended-state="0" />
+    <frame x="-1267" y="78" width="1047" height="795" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24401914" sideWeight="0.6705036" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24875125" sideWeight="0.6705036" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -716,7 +712,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/patents/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="10" selection-start="1566" selection-end="1566" vertical-scroll-proportion="-0.625">
+        <state line="62" column="10" selection-start="1566" selection-end="1566" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -726,37 +722,33 @@
         <state line="28" column="84" selection-start="874" selection-end="874" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/tasks/fetch_patents.rake">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="17" selection-start="733" selection-end="733" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="15" selection-start="915" selection-end="915" vertical-scroll-proportion="-14.5">
+        <state line="25" column="15" selection-start="915" selection-end="915" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="14" selection-start="119" selection-end="119" vertical-scroll-proportion="0.046801873">
-          <folding />
-        </state>
+        <state line="2" column="14" selection-start="119" selection-end="119" vertical-scroll-proportion="0.046801873" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/bootstrap_and_overrides.css.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="20" selection-start="152" selection-end="152" vertical-scroll-proportion="0.18720749">
-          <folding />
-        </state>
+        <state line="8" column="20" selection-start="152" selection-end="152" vertical-scroll-proportion="0.18720749" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/patents/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="25" selection-start="137" selection-end="137" vertical-scroll-proportion="0.12155592">
+        <state line="5" column="25" selection-start="137" selection-end="137" vertical-scroll-proportion="-3.125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/tasks/fetch_patents.rake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="17" selection-start="733" selection-end="733" vertical-scroll-proportion="0.7311321">
           <folding />
         </state>
       </provider>

@@ -37,14 +37,14 @@ task :fetch_patents => :environment do
       application_no = year.to_s + i.to_s.rjust(6, '0')
 
       if Patent.find_all_by_application_number(application_no).count == 0
-
-        url = "http://pericles.ipaustralia.gov.au/ols/auspat/applicationDetails.do?applicationNo=" + application_no.to_s
-        agent.get(url)
-
-        puts (application_no)
-
-        patent = Patent.new
         begin
+          url = "http://pericles.ipaustralia.gov.au/ols/auspat/applicationDetails.do?applicationNo=" + application_no.to_s
+          agent.get(url)
+
+          puts (application_no)
+
+          patent = Patent.new
+
           patent.source_url = url
           patent.application_number = agent.page.at("#content :nth-child(2) .col6:nth-child(1) tr:nth-child(1) td:nth-child(2)").text.strip
           patent.application_type = agent.page.at("#content :nth-child(2) .col6:nth-child(1) tr:nth-child(1) td:nth-child(4)").text.strip
@@ -58,17 +58,17 @@ task :fetch_patents => :environment do
           patent.applicant_name = agent.page.at(":nth-child(4) .col6 tr:nth-child(1) td:nth-child(2)").text.strip
           patent.applicant_address = agent.page.at(".col6:nth-child(1) .colspan3").text.strip
           patent.old_name = agent.page.at(".colspan5").text.strip
+
+          if !patent.application_number.nil? && !patent.invention_title.nil?
+            patent.save!
+            puts "     -- saved"
+            failures = 0
+          else
+            puts "     -- not enough fields fetched; not saved"
+            failures = failures + 1
+          end
         rescue
         end
-        if !patent.application_number.nil? && !patent.invention_title.nil?
-          patent.save!
-          puts "     -- saved"
-          failures = 0
-        else
-          puts "     -- not enough fields fetched; not saved"
-          failures = failures + 1
-        end
-
       else
 
         puts application_no.to_s + " -- already exists"

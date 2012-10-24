@@ -3,7 +3,10 @@
   <h2><%= @patent.invention_title %></h2>
 </div>
 
-<dl class="dl-horizontal">
+<p class="lead">This <%= @patent.application_type %> application was filed on <%= @patent.filing_date %> and is credited to <%= @patent.inventor %>.</p>
+
+<h3>Details</h3>
+
 
   <dt><strong><%= model_class.human_attribute_name(:application_number) %>:</strong></dt>
   <dd><%= @patent.application_number %></dd>
@@ -33,6 +36,6 @@
   <dd><%= @patent.applicant_address %></dd>
   <dt><strong><%= model_class.human_attribute_name(:old_name) %>:</strong></dt>
   <dd><%= @patent.old_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:source_url) %>:</strong></dt>
-  <dd><%= @patent.source_url %></dd>
-</dl>
+  <dt><strong></strong></dt>
+  <dd><a href="<%= @patent.source_url %>">Go</a></dd>
+

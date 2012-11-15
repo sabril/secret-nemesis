@@ -10,13 +10,25 @@
 	</div>
 	
 	<ul class="nav nav-pills">
-	  <li class="active">
+	  <li
+        <% if params[:browse]=="all" %>
+            class="active"
+        <% end %>
+       >
 	   <a href="?browse=all">All</a>
 	  </li>
-	  <li>
+      <li
+      <% if params[:browse]=="provisional" %>
+      class="active"
+      <% end %>
+      >
 	   <a href="?browse=provisional">Provisional</a>
 	  </li>
-	  <li>
+      <li
+      <% if params[:browse]=="standard" %>
+      class="active"
+      <% end %>
+      >
 	   <a href="?browse=standard">Standard</a>
 	  </li>
 	</ul>

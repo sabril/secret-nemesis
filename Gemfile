@@ -25,6 +25,7 @@ gem 'acts_as_list'
 gem 'jquery-ui-rails'
 gem "tabletastic"
 gem 'memcachier'
+gem 'dalli'
 gem "mechanize"
 
 gem 'aws-s3'

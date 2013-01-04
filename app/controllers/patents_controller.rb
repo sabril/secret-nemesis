@@ -21,4 +21,8 @@ class PatentsController < ApplicationController
     @meta_description = "A " + @patent.application_type + " patent application filed on " + @patent.filing_date.to_s + " credited to " + @patent.inventor
   end
   
+  def advanced_search
+    
+  end
+  
 end

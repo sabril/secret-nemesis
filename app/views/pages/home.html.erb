@@ -5,9 +5,18 @@
   <div class="row">
 
 
-    <div class="hero-unit">
+    <div class="hero-unit home_search">
       <h2>Patent Lookup offers a free, robust search for Australian patent applications.</h2>
       <p>To get started, enter keywords relating to the subject matter of the patent or the names of its authors or agents.</p>
+      <form class="form-search">
+        <div class="input-append">
+            <input type="text" class="input-xlarge search-query" placeholder="Patent number, name, or inventor">
+            <button type="submit" class="btn">Search</button>
+          </div>
+      </form>
+      <div>
+        <%= link_to "Advanced Search", "#"%>
+      </div>
     </div>
 
 

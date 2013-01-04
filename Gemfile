@@ -31,7 +31,7 @@ group :development do
   gem "therubyracer"
   gem "less-rails"
 end
-gem 'thinking-sphinx'
+gem 'thinking-sphinx', "~> 2.0.10", require: 'thinking_sphinx'
 gem 'aws-s3'
 gem 'aws-sdk'
 

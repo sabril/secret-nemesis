@@ -18,7 +18,7 @@ class PatentsController < ApplicationController
   def show
     @patent = Patent.find(params[:id])
     @title = @patent.invention_title
-    @meta_description = "A " + @patent.application_type + " patent application filed on " + @patent.filing_date + " credited to " + @patent.inventor
+    @meta_description = "A " + @patent.application_type + " patent application filed on " + @patent.filing_date.to_s + " credited to " + @patent.inventor
   end
   
 end

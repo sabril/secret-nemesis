@@ -16,3 +16,4 @@
 .rvmrc
 .powrc
 db/sphinx
+config/database.yml

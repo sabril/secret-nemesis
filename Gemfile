@@ -27,10 +27,11 @@ gem "tabletastic"
 gem 'memcachier'
 gem 'dalli'
 gem "mechanize"
-gem "less-rails"
 group :development do
   gem "therubyracer"
+  gem "less-rails"
 end
+gem 'thinking-sphinx'
 gem 'aws-s3'
 gem 'aws-sdk'
 

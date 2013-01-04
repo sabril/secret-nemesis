@@ -1,7 +1,7 @@
 class PatentsController < ApplicationController
 
-  caches_action :index, :expires_in => 14.days, :cache_path => Proc.new { |c| c.request.url }
-  caches_action :show, :expires_in => 14.days
+  # caches_action :index, :expires_in => 14.days, :cache_path => Proc.new { |c| c.request.url }
+  # caches_action :show, :expires_in => 14.days
   
   def index
     if !params[:browse]

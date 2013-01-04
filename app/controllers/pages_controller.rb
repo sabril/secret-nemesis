@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  caches_action :home, :expires_in => 14.days
+  # caches_action :home, :expires_in => 14.days
 
   def home
     @title = "Patent Lookup Australia"

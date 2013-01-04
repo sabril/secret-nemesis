@@ -10,7 +10,7 @@ gem 'thin'
   
 gem 'fastercsv'
 gem 'nokogiri'
-gem "ckeditor", "3.7.0.rc3"
+#gem "ckeditor", "3.7.0.rc3"
 gem 'paperclip'
 gem 'rails3-generators'
 gem 'paper_trail', '~> 2'

@@ -29,8 +29,9 @@ gem 'dalli'
 gem "mechanize"
 group :development do
   gem "therubyracer"
-  gem "less-rails"
+  #gem "less-rails"
 end
+gem "less-rails"
 gem 'thinking-sphinx', "~> 2.0.10", require: 'thinking_sphinx'
 gem 'aws-s3'
 gem 'aws-sdk'

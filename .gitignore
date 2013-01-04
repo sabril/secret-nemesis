@@ -17,3 +17,4 @@
 .powrc
 db/sphinx
 config/database.yml
+public/assets/*

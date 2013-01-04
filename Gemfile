@@ -28,7 +28,9 @@ gem 'memcachier'
 gem 'dalli'
 gem "mechanize"
 gem "less-rails"
-#gem "therubyracer"
+group :development do
+  gem "therubyracer"
+end
 gem 'aws-s3'
 gem 'aws-sdk'
 

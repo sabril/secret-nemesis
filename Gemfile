@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rake'
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.10'
 gem 'mysql2'
 gem 'json'
 gem 'jquery-rails'
@@ -27,18 +27,22 @@ gem "tabletastic"
 gem 'memcachier'
 gem 'dalli'
 gem "mechanize"
-
+group :development do
+  gem "therubyracer"
+  gem "less-rails"
+end
+gem 'thinking-sphinx'
 gem 'aws-s3'
 gem 'aws-sdk'
 
 gem 'delayed_job'
 gem 'hirefireapp'
-
+gem 'twitter-bootstrap-rails'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
-  gem 'twitter-bootstrap-rails'
+  
 end

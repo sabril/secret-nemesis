@@ -28,7 +28,7 @@ gem 'memcachier'
 gem 'dalli'
 gem "mechanize"
 gem "less-rails"
-gem "therubyracer"
+#gem "therubyracer"
 gem 'aws-s3'
 gem 'aws-sdk'
 

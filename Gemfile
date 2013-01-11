@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rake'
-gem 'rails', '3.2.10'
+gem 'rails', '3.2.11'
 gem 'mysql2'
 gem 'json'
 gem 'jquery-rails'

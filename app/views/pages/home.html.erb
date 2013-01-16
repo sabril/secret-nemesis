@@ -8,14 +8,14 @@
     <div class="hero-unit home_search">
       <h2>Patent Lookup offers a free, robust search for Australian patent applications.</h2>
       <p>To get started, enter keywords relating to the subject matter of the patent or the names of its authors or agents.</p>
-      <form class="form-search">
+      <%= form_tag patents_path, method: :get, :class => "form-search" do %>
         <div class="input-append">
-            <input type="text" class="input-xlarge search-query" placeholder="Patent number, name, or inventor">
+            <input type="text" class="input-xlarge search-query" name="search" placeholder="Patent number, name, or inventor">
             <button type="submit" class="btn">Search</button>
           </div>
-      </form>
+      <% end %>
       <div>
-        <%= link_to "Advanced Search", "#"%>
+        <%= link_to "Advanced Search", "/advanced_search"%>
       </div>
     </div>
 

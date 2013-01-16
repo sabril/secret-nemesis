@@ -1,8 +1,8 @@
 <%= form_for @patent, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
-    <%= f.label :permalink, :class => 'control-label' %>
+    <%#= f.label :permalink, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :permalink, :class => 'text_field' %>
+      <%#= f.text_field :permalink, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
@@ -90,15 +90,15 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :source_url, :class => 'control-label' %>
+    <%#= f.label :source_url, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :source_url, :class => 'text_field' %>
+      <%#= f.text_field :source_url, :class => 'text_field' %>
     </div>
   </div>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                patent_path, :class => 'btn' %>
+                patents_path, :class => 'btn' %>
   </div>
 <% end %>

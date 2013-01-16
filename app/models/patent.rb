@@ -23,5 +23,9 @@ class Patent < ActiveRecord::Base
     namestr.sub("-amp-","-and-")
     self.permalink = namestr
   end
+  
+  # def self.search(search)
+  #   
+  # end
 
 end

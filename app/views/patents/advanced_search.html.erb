@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="row">
+    <div class="page-header">
+  	  <h1>Advanced Search</h1>
+  	  <p>Enter a key word or phrase one or more field, and then select an application type and status if required</p>
+  	</div>
+  	<div class="span12">
+  	  <%= form_for @patents, :url => advanced_search_path, :method => "GET", :html => { :class => 'form-horizontal' } do |f| %>
+  	    <div class="control-group">
+          <%= f.label :invention_title, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :invention_title, :class => 'text_field' %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :inventor_name, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :inventor, :class => 'text_field' %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :agent_name, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :agent_name, :class => 'text_field' %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :applicant_name, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :applicant_name, :class => 'text_field' %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :application_type, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.select :application_type, [['Any', ''], ['Standard', 'Standard'], ['Provisional', 'Provisional']] %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :application_status, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.select :application_status, [['Any', ''], ['FILED', 'FILED'], ['CONVERTED', 'CONVERTED'], ['WITHDRAWN', 'WITHDRAWN']] %>
+          </div>
+        </div>
+        <div class="form-actions">
+          <%= f.submit "Search", :class => 'btn btn-primary' %>
+        </div>
+  	  <% end %>
+  	</div>
+  </div><!-- row -->
+  <div>
+    <% if @patents_result != "" %>
+    <%- model_class = @patents.class -%>
+      <table class="table table-striped">
+    	  <thead>
+    	    <tr>
+    	      <th><%= model_class.human_attribute_name(:invention_title) %></th>
+    	      <th><%= model_class.human_attribute_name(:application_number) %></th>
+    	      <th><%= model_class.human_attribute_name(:application_type) %></th>
+    	      <th><%= model_class.human_attribute_name(:filing_date) %></th>
+    	      <th><%= model_class.human_attribute_name(:applicant_name) %></th>
+    	    </tr>
+    	  </thead>
+    	  <tbody>
+    	    <% @patents_result.each do |patent| %>
+    	      <tr>
+    	        <td><%= link_to patent.invention_title, patent_path(patent) %></td>
+    	        <td><%= patent.application_number %></td>
+    	        <td><%= patent.application_type %></td>
+    	        <td><%= patent.filing_date %></td>
+    	        <td><%= patent.applicant_name %></td>
+    	     </tr>
+    	    <% end %>
+    	  </tbody>
+    	</table>
+    	<div class="pagination">
+      <%= paginate @patents_result %>
+      </div>
+    <% end %>
+  </div><!-- row -->
+</div>

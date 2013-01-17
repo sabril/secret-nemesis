@@ -22,6 +22,40 @@ class PatentsController < ApplicationController
   end
   
   def advanced_search
+    condition = "1=1"
+    if params["patent"]
+      @patents = Patent.new params["patent"]
+      params["patent"].each do |column, content|
+        if column == "invention_title"
+          condition << " and invention_title like '%#{content}%'" if content != ""
+          next
+        end
+        if column == "inventor"
+          condition << " and inventor like '%#{content}%'" if content != ""
+          next
+        end
+        if column == "agent_name"
+          condition << " and agent_name like '%#{content}%'" if content != ""
+          next
+        end
+        if column == "applicant_name"
+          condition << " and applicant_name like '%#{content}%'" if content != ""
+          next
+        end
+        if column == "application_type"
+          condition << " and application_type = '#{content}'" if content != ""
+          next
+        end
+        if column == "application_status"
+          condition << " and application_status = '#{content}'" if content != ""
+          next
+        end
+      end
+      @patents_result = Patent.where(condition).order(sort_column + " " + sort_direction).page(params[:page])
+    else
+      @patents = Patent.new
+      @patents_result = ""
+    end
     
   end
   

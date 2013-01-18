@@ -7,7 +7,7 @@ gem 'json'
 gem 'jquery-rails'
 gem "devise"
 gem 'thin'
-  
+gem "exception_notification", :git => "git://github.com/rails/exception_notification.git", :require => "exception_notifier"
 gem 'fastercsv'
 gem 'nokogiri'
 #gem "ckeditor", "3.7.0.rc3"
@@ -35,6 +35,7 @@ end
 gem "therubyracer", "0.10.2"
 gem "less-rails"
 gem 'thinking-sphinx', "~> 2.0.10", require: 'thinking_sphinx'
+gem 'flying-sphinx',   '0.8.4'
 gem 'aws-s3'
 gem 'aws-sdk'
 

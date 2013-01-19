@@ -1,0 +1,6 @@
+production:
+  version: '2.1.0'
+  port: <%= ENV["FLYING_SPHINX_PORT"] %>
+  address: <%= ENV["FLYING_SPHINX_API_KEY"] %>
+  api_key: <%= ENV["FLYING_SPHINX_IDENTIFIER"] %>
+  identifier: <%= ENV["FLYING_SPHINX_IDENTIFIER"] %>

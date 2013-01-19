@@ -6,15 +6,15 @@ class Patent < ActiveRecord::Base
   before_save :generate_permalink
 
 
-  # define_index do
-  #   indexes application_number
-  #   indexes applicant_name
-  #   indexes invention_title
-  #   indexes inventor
-  #   indexes agent_name
-  #   
-  #   has created_at, updated_at
-  # end
+  define_index do
+    indexes application_number
+    indexes applicant_name
+    indexes invention_title
+    indexes inventor
+    indexes agent_name
+    
+    has created_at, updated_at
+  end
   
   
   def generate_permalink

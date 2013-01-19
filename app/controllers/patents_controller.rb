@@ -12,7 +12,7 @@ class PatentsController < ApplicationController
     # else
     #   @patents = Patent.order("filing_date DESC").page(params[:page]).per(50)
     # end
-    @patents = Patent.search(params[:search]).page(params[:page])
+    @patents = Patent.search(params[:search], :order => sort_column, :sort_mode => sort_direction).page(params[:page])
   end
 
   def show

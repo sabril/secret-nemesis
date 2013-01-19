@@ -4,3 +4,4 @@ production:
   address: <%= ENV["FLYING_SPHINX_API_KEY"] %>
   api_key: <%= ENV["FLYING_SPHINX_IDENTIFIER"] %>
   identifier: <%= ENV["FLYING_SPHINX_IDENTIFIER"] %>
+  max_matches: 200000

@@ -39,7 +39,7 @@ gem 'flying-sphinx',   '0.8.4'
 gem 'aws-s3'
 gem 'aws-sdk'
 
-gem 'delayed_job'
+gem 'delayed_job_active_record'
 gem 'hirefireapp'
 gem 'twitter-bootstrap-rails'
 # Gems used only for assets and not required

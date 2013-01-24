@@ -32,12 +32,18 @@
   </div>
   -->
   <div class="span2">
-    <!--
-   <h5>Application Type</h5>
-   <%= check_box_tag :application_type %>
-   <h5>Status</h5>
-   <h5>Date Range</h5>
-    -->
+    <%= simple_form_for @patents_search, :url => patents_path, :method => "GET", :html => { :class => 'form-vertical' } do |f| %>
+      <h5>Application Type</h5>
+      <%= hidden_field_tag :filtered, true %>
+        <%= f.collection_check_boxes :application_type,[["Provisional", "Provisional"] ,["Standard", "Standard"]], :first, :last  %>
+      <div class="controls">
+        
+      </div>
+      <h5>Status</h5>
+        <%= f.collection_check_boxes :application_status,[["FILED","FILED"],["CONVERTED","CONVERTED"],["WITHDRAWN","WITHDRAWN"]], :first, :last %>
+        <%= f.submit 'enter'%>
+    <% end %>
+       <h5>Date Range</h5>
   </div>
   <div class="span10">
     <%= render "patents" %>

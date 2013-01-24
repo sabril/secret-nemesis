@@ -5,7 +5,8 @@
   	  <p>Enter a key word or phrase one or more field, and then select an application type and status if required</p>
   	</div>
   	<div class="span12">
-  	  <%= form_for @patents, :url => advanced_search_path, :method => "GET", :html => { :class => 'form-horizontal' } do |f| %>
+  	  <%= form_for @patents, :url => patents_path, :method => "GET", :html => { :class => 'form-horizontal' } do |f| %>
+  	    <%= hidden_field_tag :advanced, true %>
   	    <div class="control-group">
           <%= f.label :invention_title, :class => 'control-label' %>
           <div class="controls">

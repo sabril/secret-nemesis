@@ -28,6 +28,8 @@ gem "tabletastic"
 gem 'memcachier'
 gem 'dalli'
 gem "mechanize"
+gem 'simple_form'
+
 group :development do
   # gem "therubyracer"
   #gem "less-rails"

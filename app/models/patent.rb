@@ -8,6 +8,8 @@ class Patent < ActiveRecord::Base
 
   define_index do
     indexes application_number
+    indexes application_type
+    indexes application_status
     indexes applicant_name
     indexes invention_title
     indexes inventor

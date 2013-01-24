@@ -1,5 +1,5 @@
 class Patent < ActiveRecord::Base
-  attr_accessible :application_number, :application_type, :application_status, :under_opposition, :proceeding_type, :invention_title, :inventor, :agent_name, :address_for_service, :filing_date, :associated_companies, :applicant_name, :applicant_address, :old_name
+  attr_accessible :application_number, :application_type, :application_status, :under_opposition, :proceeding_type, :invention_title, :inventor, :agent_name, :address_for_service, :filing_date, :associated_companies, :applicant_name, :applicant_address, :old_name, :created_at, :updated_at
   
   include ActionView::Helpers::TextHelper
 
@@ -15,7 +15,7 @@ class Patent < ActiveRecord::Base
     indexes inventor
     indexes agent_name
     
-    has created_at, updated_at
+    has created_at, updated_at, filing_date
   end
   
   

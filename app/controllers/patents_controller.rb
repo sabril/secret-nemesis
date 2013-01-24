@@ -44,8 +44,28 @@ class PatentsController < ApplicationController
       @patents = Patent.search(search_query, :match_mode => :extended, :order => sort_column, :sort_mode => sort_direction).page(params[:page])
     elsif params[:filtered] == "true"
       @patents_search = Patent.new params[:patent]
+      search_query = ""
+      params["patent"].each do |column, content|
+        if column == "application_type"
+          search_query << " @application_type #{params[:patent][:application_type]}" if content != [""]
+          next
+        end
+        if column == "application_status"
+          search_query << " @application_status #{params[:patent][:application_status]}" if content != [""]
+          next
+        end
+        # if column == "created_at"
+        #                           search_query << " @filing_date #{2.year.ago..Time.now}" if content != ""
+        #                           next
+        #                         end
+      end
+      if params[:patent][:created_at] != "" and params[:patent][:updated_at] != ""
+        @patents = Patent.search(search_query, :with => {:filing_date => Date.parse(params[:patent][:created_at].gsub(/, */, '-') )..Date.parse(params[:patent][:updated_at].gsub(/, */, '-') )}, :match_mode => :extended, :ignore_errors => true, :order => sort_column, :sort_mode => sort_direction).page(params[:page])
+      else
+        @patents = Patent.search(search_query, :match_mode => :extended, :ignore_errors => true, :order => sort_column, :sort_mode => sort_direction).page(params[:page])
+      end
       # @patents = Patent.search(:conditions => {:application_type => params[:patent][:application_type], :application_status => params[:patent][:application_status]}, :ignore_errors => true, :order => sort_column, :sort_mode => sort_direction).page(params[:page])
-      @patents = Patent.search("#{params[:patent][:application_type]} #{params[:patent][:application_status]}", :ignore_errors => true, :order => sort_column, :sort_mode => sort_direction).page(params[:page])
+      
     else
       @patents_search = Patent.new
       @patents = Patent.search(params[:search], :order => sort_column, :sort_mode => sort_direction).page(params[:page])

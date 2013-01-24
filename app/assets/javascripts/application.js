@@ -12,5 +12,19 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
 //= require twitter/bootstrap
 //= require_tree .
+
+$(document).ready(function(){
+  $('.datepicker1').datepicker({
+    altFormat: 'yy, mm, dd',
+    dateFormat: 'dd-mm-yy',
+    altField: "#patent_created_at"
+  });
+  $('.datepicker2').datepicker({
+    altFormat: 'yy, mm, dd',
+    dateFormat: 'dd-mm-yy',
+    altField: "#patent_updated_at"
+  });
+});

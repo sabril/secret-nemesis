@@ -1,41 +1,70 @@
 <%- model_class = @patent.class -%>
-<div class="page-header">
-  <h2><%= @patent.invention_title %></h2>
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      <div class="page-header">
+        <h2><%= @patent.invention_title %></h2>
+      </div>
+    </div>
+  </div><!-- row -->
+  <div class="row">
+    <div class="span12">
+      <p class="lead"><%= @meta_description %></p>
+    </div>
+  </div><!-- row -->
+  <div class="row">
+    <div class="span9">
+      <h3>Details</h3>
+      <p>
+        <span class="labela"><%= model_class.human_attribute_name(:application_number) %> : </span><span class="field"><%= @patent.application_number %></span>
+      </p>
+      <p>
+        <span class="labela"><%= model_class.human_attribute_name(:application_type) %> : </span><span class="field"><%= @patent.application_type %></span>
+      </p>
+      <p>
+        <span class="labela"><%= model_class.human_attribute_name(:application_status) %> : </span><span class="field"><%= @patent.application_status %></span>
+      </p>
+      <p>
+        <span class="labela"><%= model_class.human_attribute_name(:under_opposition) %> : </span><span class="field"><%= @patent.under_opposition %></span>
+      </p>
+      <p>
+        <span class="labela"><%= model_class.human_attribute_name(:proceeding_type) %> : </span><span class="field"><%= @patent.proceeding_type %></span>
+      </p>
+      <p>
+        <span class="labela"><%= model_class.human_attribute_name(:invention_title) %> : </span><span class="field"><%= @patent.invention_title %></span>
+      </p>
+      <p>
+        <span class="labela"><%= model_class.human_attribute_name(:inventor) %> : </span><span class="field"><%= @patent.inventor %></span>
+      </p>
+      <p>
+        <span class="labela"><%= model_class.human_attribute_name(:agent_name) %> : </span><span class="field"><%= @patent.agent_name %></span>
+      </p>
+      <p>
+        <span class="labela"><%= model_class.human_attribute_name(:address_for_service) %> : </span><span class="field"><%= @patent.address_for_service %></span>
+      </p>
+      <p>
+        <span class="labela"><%= model_class.human_attribute_name(:filing_date) %> : </span><span class="field"><%= @patent.filing_date %></span>
+      </p>
+      <p>
+        <span class="labela"><%= model_class.human_attribute_name(:associated_companies) %> : </span><span class="field"><%= @patent.associated_companies %></span>
+      </p>
+      <p>
+        <span class="labela"><%= model_class.human_attribute_name(:applicant_name) %> : </span><span class="field"><%= @patent.applicant_name %></span>
+      </p>
+      <p>
+        <span class="labela"><%= model_class.human_attribute_name(:applicant_address) %> : </span><span class="field"><%= @patent.applicant_address %></span>
+      </p>
+      <p>
+        <span class="labela"><%= model_class.human_attribute_name(:old_name) %> : </span><span class="field"><%= @patent.old_name %></span>
+      </p>
+      <p>
+        <span class="labela">Original Source : </span><span class="field"><a href="<%= @patent.source_url %>">Go</a></span>
+      </p>
+    </div><!-- span -->
+    <div class="span3">
+      <h3>Applicant location</h3>
+      <img src="http://maps.google.com/maps/api/staticmap?center=<%= @patent.address_for_service %>&zoom=16&markers=<%= @patent.address_for_service %>&size=300x300&sensor=true">
+    </div><!-- span -->
+  </div><!-- row -->
 </div>
-
-<p class="lead"><%= @meta_description %></p>
-
-<h3>Details</h3>
-
-
-  <dt><strong><%= model_class.human_attribute_name(:application_number) %>:</strong></dt>
-  <dd><%= @patent.application_number %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:application_type) %>:</strong></dt>
-  <dd><%= @patent.application_type %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:application_status) %>:</strong></dt>
-  <dd><%= @patent.application_status %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:under_opposition) %>:</strong></dt>
-  <dd><%= @patent.under_opposition %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:proceeding_type) %>:</strong></dt>
-  <dd><%= @patent.proceeding_type %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:invention_title) %>:</strong></dt>
-  <dd><%= @patent.invention_title %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:inventor) %>:</strong></dt>
-  <dd><%= @patent.inventor %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:agent_name) %>:</strong></dt>
-  <dd><%= @patent.agent_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:address_for_service) %>:</strong></dt>
-  <dd><%= @patent.address_for_service %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:filing_date) %>:</strong></dt>
-  <dd><%= @patent.filing_date %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:associated_companies) %>:</strong></dt>
-  <dd><%= @patent.associated_companies %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:applicant_name) %>:</strong></dt>
-  <dd><%= @patent.applicant_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:applicant_address) %>:</strong></dt>
-  <dd><%= @patent.applicant_address %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:old_name) %>:</strong></dt>
-  <dd><%= @patent.old_name %></dd>
-  <dt><strong>Original Source:</strong></dt>
-  <dd><a href="<%= @patent.source_url %>">Go</a></dd>
 

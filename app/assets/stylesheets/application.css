@@ -12,3 +12,12 @@
  *= require jquery.ui.all
  *= require_tree .
  */
+ 
+ .labela{
+   font-weight: bold;
+   display: inline;
+ }
+ 
+ .field{
+   display: inline;
+ }

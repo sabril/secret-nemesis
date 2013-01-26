@@ -27,4 +27,15 @@ $(document).ready(function(){
     dateFormat: 'dd-mm-yy',
     altField: "#patent_updated_at"
   });
+  $('.datepicker1').keyup(function(){
+    if($(this).val().length == 0){
+      $('#patent_created_at').val('');
+    }
+  });
+  $('.datepicker2').keyup(function(){
+    if($(this).val().length == 0){
+      $('#patent_updated_at').val('');
+    }
+  });
+  
 });

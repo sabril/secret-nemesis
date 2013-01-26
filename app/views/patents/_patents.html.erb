@@ -13,6 +13,9 @@
     <%= render @patents %>
   </tbody>
 </table>
+<div>
+show <%= @patents.offset_value + 1 %> - <%= @patents.offset_value + @patents.length %> of <%= @patents.total_count %> results
+</div>
 <div class="pagination">
   <%= paginate @patents %>
 </div>

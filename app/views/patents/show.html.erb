@@ -63,7 +63,42 @@
     </div><!-- span -->
     <div class="span3">
       <h3>Applicant location</h3>
-      <img src="http://maps.google.com/maps/api/staticmap?center=<%= @patent.address_for_service %>&zoom=16&markers=<%= @patent.address_for_service %>&size=300x300&sensor=true">
+      <!--<img src="http://maps.google.com/maps/api/staticmap?center=<%= @patent.address_for_service %>&zoom=16&markers=<%= @patent.address_for_service %>&size=300x300&sensor=true">-->
+      <div id="map_canvas" data-location="<%= @patent.address_for_service %>">
+      </div>
+      <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+      <script>
+          $('#map_canvas').ready(function(){
+            var geocoder = new google.maps.Geocoder();
+            var address = $('#map_canvas').attr("data-location");
+            var latitude;
+            var longitude;
+            var map;
+            geocoder.geocode( { 'address': address}, function(results, status) {
+
+            if (status == google.maps.GeocoderStatus.OK) {
+                latitude = results[0].geometry.location.lat();
+                longitude = results[0].geometry.location.lng();
+                 var mapOptions = {
+                    zoom: 16,
+                    center: new google.maps.LatLng(latitude , longitude),
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                  };
+                  map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+                  var marker = new google.maps.Marker({
+                      position: new google.maps.LatLng(latitude , longitude),
+                      map: map
+                  });
+                } 
+            });
+          });
+        </script>
+        <br/>
+        <h3>Related Patents</h3>
+        <% @patent_related.each do |f| %>
+          <p><%= link_to f.invention_title, patent_path(f) %></p>
+        <% end %>
     </div><!-- span -->
   </div><!-- row -->
 </div>

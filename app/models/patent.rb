@@ -15,9 +15,7 @@ class Patent < ActiveRecord::Base
     indexes inventor
     indexes agent_name
     
-    has created_at, updated_at, filing_date
-    has app_type, :as => :application_type, :type => :string
-    has app_status, :as => :application_status, :type => :string
+    has created_at, updated_at, filing_date, id
   end
   
   

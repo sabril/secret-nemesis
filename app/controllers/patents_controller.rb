@@ -4,6 +4,7 @@ class PatentsController < ApplicationController
   # caches_action :show, :expires_in => 14.days
   
   def index
+    @title = "Patent Lookup Australia - Browse Patents"
     # if !params[:browse]
     #   params[:browse]="all"
     # end
@@ -69,11 +70,13 @@ class PatentsController < ApplicationController
 
   def show
     @patent = Patent.find(params[:id])
+    @patent_related = Patent.search("#{@patent.invention_title} #{@patent.inventor} #{@patent.agent_name}", :without => {:id => @patent.id }, :match_mode => :any, :page => 1, :per_page => 5, :field_weights => { :invention_title =>10, :inventor => 15, :agent_name => 10 })
     @title = @patent.invention_title
     @meta_description = "A " + @patent.application_type + " patent application filed on " + @patent.filing_date.to_s + " credited to " + @patent.inventor
   end
   
   def advanced_search
+    @title = "Patent Lookup Australia - Advanced Search"
     condition = "1=1"
     if params["patent"]
       @patents = Patent.new params["patent"]

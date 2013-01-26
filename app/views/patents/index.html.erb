@@ -42,10 +42,8 @@
       <h5>Status</h5>
         <%= f.collection_check_boxes :application_status,[["FILED","FILED"],["CONVERTED","CONVERTED"],["WITHDRAWN","WITHDRAWN"]], :first, :last %>
       <h5>Date Range</h5>
-        <%= f.input :created_at, :as => :string, :input_html => { :id => "picker1", :name => "created_at_picker", :class => "datepicker1 span2"}, :label => false %>
-        <%= f.input :created_at, :as => :hidden, :input_html => { :class => "span2"}, :label => false %>
-        <%= f.input :updated_at, :as => :string, :input_html => { :id => "picker2", :name => "updated_at_picker", :class => "datepicker2 span2"}, :label => false %>
-        <%= f.input :updated_at, :as => :hidden, :input_html => { :class => "span2"}, :label => false %>
+        <%= f.input :created_at, :as => :string, :input_html => { :class => "datepicker span2"}, :label => false %>
+        <%= f.input :updated_at, :as => :string, :input_html => { :class => "datepicker span2"}, :label => false %>
         <%= f.submit 'search', :class => "btn btn-primary" %>
    <% end %>
   </div>

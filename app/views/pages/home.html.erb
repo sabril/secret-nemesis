@@ -18,27 +18,26 @@
         <%= link_to "Advanced Search", "/advanced_search"%>
       </div>
     </div>
-
-
     <div class="row">
-      <div class="span4">
-        <h2><a href="/patents?browse=all">All Patents</a></h2>
-        <p>Browse recently filed provisional and standard patent applications.</p>
-        <p><a class="btn" href="/patents?browse=recent">Go &raquo;</a></p>
+      <div class="span6">
+        <h2>New Patents</h2>
+        <% @patents_new.each do |f| %>
+          <p>
+            <%= link_to f.invention_title, patent_path(f) %>
+          </p>
+        <% end %>
+        <a class="btn" href="/patents?browse">See more result »</a>
       </div>
-      <div class="span4">
-        <h2><a href="/patents?browse=provisional">Provisional Patents</a></h2>
-        <p>Browse provisional applications across all fields.</p>
-        <p><a class="btn" href="/patents?browse=provisional">Go &raquo;</a></p>
-      </div>
-      <div class="span4">
-        <h2><a href="/patents?browse=standard">Standard Patents</a></h2>
-        <p>Browse standard applications across all fields.</p>
-        <p><a class="btn" href="/patents?browse=standard">Go &raquo;</a></p>
+      <div class="span6">
+        <h2>Trending Patents</h2>
+        <% @patents_trend.each do |f| %>
+          <p>
+            <%= link_to f.invention_title, patent_path(f) %>
+          </p>
+        <% end %>
+        <a class="btn" href="/patents?browse">See more result »</a>
       </div>
     </div>
-
-
   </div>
 </div>
 

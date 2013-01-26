@@ -42,7 +42,12 @@ class PatentsController < ApplicationController
           next
         end
       end
-      @patents = Patent.search(search_query, :match_mode => :extended, :order => sort_column, :sort_mode => sort_direction).page(params[:page])
+      if params[:patent][:created_at] != "" and params[:patent][:updated_at] != ""
+        # @patents = Patent.search(search_query, :with => {:filing_date => Date.parse(params[:patent][:created_at].gsub(/, */, '-') )..Date.parse(params[:patent][:updated_at].gsub(/, */, '-') )}, :match_mode => :extended, :ignore_errors => true, :order => sort_column, :sort_mode => sort_direction).page(params[:page])
+        @patents = Patent.search(search_query, :with => {:filing_date => Date.parse(params[:patent][:created_at].gsub(/, */, '-') )..Date.parse(params[:patent][:updated_at].gsub(/, */, '-') )}, :match_mode => :extended, :ignore_errors => true, :order => sort_column, :sort_mode => sort_direction).page(params[:page])
+      else
+        @patents = Patent.search(search_query, :match_mode => :extended, :ignore_errors => true, :order => sort_column, :sort_mode => sort_direction).page(params[:page])
+      end
     elsif params[:filtered] == "true"
       @patents_search = Patent.new params[:patent]
       search_query = ""

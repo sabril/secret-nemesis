@@ -43,40 +43,17 @@
             <%= f.select :application_status, [['Any', ''], ['FILED', 'FILED'], ['CONVERTED', 'CONVERTED'], ['WITHDRAWN', 'WITHDRAWN']] %>
           </div>
         </div>
+        <div class="control-group">
+          <%= f.label :date_range, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :created_at, :class => "datepicker span2", :label => false %> -
+            <%= f.text_field :updated_at, :class => "datepicker span2", :label => false %>
+          </div>
+        </div>
         <div class="form-actions">
           <%= f.submit "Search", :class => 'btn btn-primary' %>
         </div>
   	  <% end %>
   	</div>
-  </div><!-- row -->
-  <div>
-    <% if @patents_result != "" %>
-    <%- model_class = @patents.class -%>
-      <table class="table table-striped">
-    	  <thead>
-    	    <tr>
-    	      <th><%= model_class.human_attribute_name(:invention_title) %></th>
-    	      <th><%= model_class.human_attribute_name(:application_number) %></th>
-    	      <th><%= model_class.human_attribute_name(:application_type) %></th>
-    	      <th><%= model_class.human_attribute_name(:filing_date) %></th>
-    	      <th><%= model_class.human_attribute_name(:applicant_name) %></th>
-    	    </tr>
-    	  </thead>
-    	  <tbody>
-    	    <% @patents_result.each do |patent| %>
-    	      <tr>
-    	        <td><%= link_to patent.invention_title, patent_path(patent) %></td>
-    	        <td><%= patent.application_number %></td>
-    	        <td><%= patent.application_type %></td>
-    	        <td><%= short_datetime patent.filing_date %></td>
-    	        <td><%= patent.applicant_name %></td>
-    	     </tr>
-    	    <% end %>
-    	  </tbody>
-    	</table>
-    	<div class="pagination">
-      <%= paginate @patents_result %>
-      </div>
-    <% end %>
   </div><!-- row -->
 </div>

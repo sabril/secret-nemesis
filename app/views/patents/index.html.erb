@@ -1,53 +1,29 @@
 <%- model_class = Patent.new.class -%>
-
+<%#= debug(params)%>
 <div class="container">
+  <div class="page-header">
+	  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+	</div>
   <div class="row">
-    <div class="page-header">
-  	  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
-  	</div>
-  	<!--
-  	<ul class="nav nav-pills">
-  	  <li
-          <% if params[:browse]=="all" %>
-              class="active"
-          <% end %>
-         >
-  	   <a href="?browse=all">All</a>
-  	  </li>
-        <li
-        <% if params[:browse]=="provisional" %>
-        class="active"
-        <% end %>
-        >
-  	   <a href="?browse=provisional">Provisional</a>
-  	  </li>
-        <li
-        <% if params[:browse]=="standard" %>
-        class="active"
-        <% end %>
-        >
-  	   <a href="?browse=standard">Standard</a>
-  	  </li>
-  	</ul>
+  	<div class="span2">
+      <%= simple_form_for @patents_search, :url => patents_path, :method => "GET", :html => { :class => 'form-vertical' } do |f| %>
+        <h5>Application Type</h5>
+        <%= hidden_field_tag :search, @q %>
+        <%= hidden_field_tag :filtered, true %>
+          <%= f.collection_check_boxes :application_type,[["Provisional", "Provisional"] ,["Standard", "Standard"]], :first, :last  %>
+        <div class="controls">
+        </div>
+        <h5>Status</h5>
+          <%= f.collection_check_boxes :application_status,[["FILED","FILED"],["CONVERTED","CONVERTED"],["WITHDRAWN","WITHDRAWN"]], :first, :last %>
+        <h5>Date Range</h5>
+          <%= f.input :created_at, :as => :string, :input_html => { :class => "datepicker span2"}, :label => false %>
+          <%= f.input :updated_at, :as => :string, :input_html => { :class => "datepicker span2"}, :label => false %>
+          <%= f.submit 'search', :class => "btn btn-primary" %>
+     <% end %>
+    </div>
+    <div class="span10">
+      <%= render "patents" %>
+    </div>
   </div>
-  -->
-  <div class="span2">
-    <%= simple_form_for @patents_search, :url => patents_path, :method => "GET", :html => { :class => 'form-vertical' } do |f| %>
-      <h5>Application Type</h5>
-      <%= hidden_field_tag :filtered, true %>
-        <%= f.collection_check_boxes :application_type,[["Provisional", "Provisional"] ,["Standard", "Standard"]], :first, :last  %>
-      <div class="controls">
-        
-      </div>
-      <h5>Status</h5>
-        <%= f.collection_check_boxes :application_status,[["FILED","FILED"],["CONVERTED","CONVERTED"],["WITHDRAWN","WITHDRAWN"]], :first, :last %>
-      <h5>Date Range</h5>
-        <%= f.input :created_at, :as => :string, :input_html => { :class => "datepicker span2"}, :label => false %>
-        <%= f.input :updated_at, :as => :string, :input_html => { :class => "datepicker span2"}, :label => false %>
-        <%= f.submit 'search', :class => "btn btn-primary" %>
-   <% end %>
-  </div>
-  <div class="span10">
-    <%= render "patents" %>
-  </div> 
+  
 </div>

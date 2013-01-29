@@ -13,6 +13,7 @@ class PatentsController < ApplicationController
     # else
     #   @patents = Patent.order("filing_date DESC").page(params[:page]).per(50)
     # end
+    @search_query = params[:search] || ""
     if params[:advanced] == "true"
       @patents_search = Patent.new
       search_query = ""
@@ -61,6 +62,7 @@ class PatentsController < ApplicationController
           next
         end
       end
+      search_query = params[:search] + " " + search_query unless params[:search].blank?
       if params[:patent][:created_at] != "" and params[:patent][:updated_at] != ""
         # @patents = Patent.search(search_query, :with => {:filing_date => Date.parse(params[:patent][:created_at].gsub(/, */, '-') )..Date.parse(params[:patent][:updated_at].gsub(/, */, '-') )}, :match_mode => :extended, :ignore_errors => true, :order => sort_column, :sort_mode => sort_direction).page(params[:page])
         @patents = Patent.search(search_query, :with => {:filing_date => Date.parse(params[:patent][:created_at].gsub(/, */, '-') )..Date.parse(params[:patent][:updated_at].gsub(/, */, '-') )}, :match_mode => :extended, :ignore_errors => true, :order => sort_column, :sort_mode => sort_direction).page(params[:page])
@@ -71,6 +73,7 @@ class PatentsController < ApplicationController
       @patents_search = Patent.new
       @patents = Patent.search(params[:search], :order => sort_column, :sort_mode => sort_direction).page(params[:page])
     end
+    @q = params[:search]
   end
 
   def show
@@ -92,7 +95,6 @@ class PatentsController < ApplicationController
     end
     @title = @patent.invention_title
     @meta_description = "A " + @patent.application_type + " patent application filed on " + @patent.filing_date.strftime("%d %B %Y") + " credited to " + @patent.inventor
-    @patents
   end
   
   def advanced_search

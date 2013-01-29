@@ -4,67 +4,57 @@
     <div class="span12">
       <div class="page-header">
         <h2><%= @patent.invention_title %></h2>
+        <p><%= @meta_description %></p>
       </div>
     </div>
   </div><!-- row -->
   <div class="row">
     <div class="span12">
-      <p class="lead"><%= @meta_description %></p>
+      
     </div>
   </div><!-- row -->
   <div class="row">
     <div class="span9">
-      <h3>Details</h3>
-      <p>
-        <span class="labela"><%= model_class.human_attribute_name(:application_number) %> : </span><span class="field"><%= @patent.application_number %></span>
-      </p>
-      <p>
-        <span class="labela"><%= model_class.human_attribute_name(:application_type) %> : </span><span class="field"><%= @patent.application_type %></span>
-      </p>
-      <p>
-        <span class="labela"><%= model_class.human_attribute_name(:application_status) %> : </span><span class="field"><%= @patent.application_status %></span>
-      </p>
-      <p>
-        <span class="labela"><%= model_class.human_attribute_name(:under_opposition) %> : </span><span class="field"><%= @patent.under_opposition %></span>
-      </p>
-      <p>
-        <span class="labela"><%= model_class.human_attribute_name(:proceeding_type) %> : </span><span class="field"><%= @patent.proceeding_type %></span>
-      </p>
-      <p>
-        <span class="labela"><%= model_class.human_attribute_name(:invention_title) %> : </span><span class="field"><%= @patent.invention_title %></span>
-      </p>
-      <p>
-        <span class="labela"><%= model_class.human_attribute_name(:inventor) %> : </span><span class="field"><%= @patent.inventor %></span>
-      </p>
-      <p>
-        <span class="labela"><%= model_class.human_attribute_name(:agent_name) %> : </span><span class="field"><%= @patent.agent_name %></span>
-      </p>
-      <p>
-        <span class="labela"><%= model_class.human_attribute_name(:address_for_service) %> : </span><span class="field"><%= @patent.address_for_service %></span>
-      </p>
-      <p>
-        <span class="labela"><%= model_class.human_attribute_name(:filing_date) %> : </span><span class="field"><%= @patent.filing_date %></span>
-      </p>
-      <p>
-        <span class="labela"><%= model_class.human_attribute_name(:associated_companies) %> : </span><span class="field"><%= @patent.associated_companies %></span>
-      </p>
-      <p>
-        <span class="labela"><%= model_class.human_attribute_name(:applicant_name) %> : </span><span class="field"><%= @patent.applicant_name %></span>
-      </p>
-      <p>
-        <span class="labela"><%= model_class.human_attribute_name(:applicant_address) %> : </span><span class="field"><%= @patent.applicant_address %></span>
-      </p>
-      <p>
-        <span class="labela"><%= model_class.human_attribute_name(:old_name) %> : </span><span class="field"><%= @patent.old_name %></span>
-      </p>
-      <p>
-        <span class="labela">Original Source : </span><span class="field"><a href="<%= @patent.source_url %>">Go</a></span>
-      </p>
+      <h4>Details</h4>
+      <dl class="dl-horizontal">
+        <dt><%= model_class.human_attribute_name(:application_number) %> :</dt>
+        <dd><%= @patent.application_number %> &nbsp;</dd>
+        <dt><%= model_class.human_attribute_name(:application_type) %> :</dt>
+        <dd><%= @patent.application_type %> &nbsp;</dd>
+        <dt><%= model_class.human_attribute_name(:application_status) %> :</dt>
+        <dd><%= @patent.application_status %> &nbsp;</dd>
+        <dt><%= model_class.human_attribute_name(:under_opposition) %> :</dt>
+        <dd><%= @patent.under_opposition %> &nbsp;</dd>
+        <dt><%= model_class.human_attribute_name(:proceeding_type) %> :</dt>
+        <dd><%= @patent.proceeding_type %> &nbsp;</dd>
+        <dt><%= model_class.human_attribute_name(:invention_title) %> :</dt>
+        <dd><%= @patent.invention_title %> &nbsp;</dd>
+        <dt><%= model_class.human_attribute_name(:inventor) %> :</dt>
+        <dd><%= @patent.inventor %> &nbsp;</dd>
+        <dt><%= model_class.human_attribute_name(:agent_name) %> :</dt>
+        <dd><%= @patent.agent_name %> &nbsp;</dd>
+        <dt><%= model_class.human_attribute_name(:address_for_service) %> :</dt>
+        <dd><%= @patent.address_for_service %> &nbsp;</dd>
+        <dt><%= model_class.human_attribute_name(:filing_date) %> :</dt>
+        <dd><%= @patent.filing_date.strftime("%d %B %Y") %> &nbsp;</dd>
+        <dt><%= model_class.human_attribute_name(:associated_companies) %> :</dt>
+        <dd><%= @patent.associated_companies %> &nbsp;</dd>
+        <dt><%= model_class.human_attribute_name(:applicant_name) %> :</dt>
+        <dd><%= @patent.applicant_name %> &nbsp;</dd>
+        <dt><%= model_class.human_attribute_name(:applicant_address) %> :</dt>
+        <dd><%= @patent.applicant_address %> &nbsp;</dd>
+        <dt><%= model_class.human_attribute_name(:old_name) %> :</dt>
+        <dd><%= @patent.old_name %> &nbsp;</dd>
+        <dt>Original Source :</dt>
+        <dd><a href="<%= @patent.source_url %>">Go</a> &nbsp;</dd>
+      </dl>
     </div><!-- span -->
     <div class="span3">
-      <h3>Applicant location</h3>
-      <!--<img src="http://maps.google.com/maps/api/staticmap?center=<%= @patent.address_for_service %>&zoom=16&markers=<%= @patent.address_for_service %>&size=300x300&sensor=true">-->
-      <div id="map_canvas" data-location="<%= @patent.address_for_service %>">
+      <div id="maps">
+        <h4>Applicant location</h4>
+        <div id="map_canvas" data-location="<%= @patent.address_for_service %>">
+        </div>
+      <br/>
       </div>
       <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
       <script>
@@ -90,14 +80,23 @@
                       position: new google.maps.LatLng(latitude , longitude),
                       map: map
                   });
-                } 
+                }
+              else{
+                $('#maps').hide();
+              } 
             });
           });
         </script>
+        <h4>Related Patents</h4>
+        <% @patents_related.each do |f| %>
+          <p class="related_font"><%= link_to f.invention_title, patent_path(f) %></p>
+        <% end %>
         <br/>
-        <h3>Related Patents</h3>
-        <% @patent_related.each do |f| %>
-          <p><%= link_to f.invention_title, patent_path(f) %></p>
+        <% if @patents_related_result.length > 0 %>
+          <h4><%= @patents_related_title %></h4>
+          <% @patents_related_result.each do |f| %>
+            <p class="related_font"><%= link_to f.invention_title, patent_path(f) %></p>
+          <% end %>
         <% end %>
     </div><!-- span -->
   </div><!-- row -->

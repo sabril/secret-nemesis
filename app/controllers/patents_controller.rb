@@ -75,9 +75,24 @@ class PatentsController < ApplicationController
 
   def show
     @patent = Patent.find(params[:id])
-    @patent_related = Patent.search("#{@patent.invention_title} #{@patent.inventor} #{@patent.agent_name}", :without => {:id => @patent.id }, :match_mode => :any, :page => 1, :per_page => 5, :field_weights => { :invention_title =>10, :inventor => 15, :agent_name => 10 })
+    @patents_related = Patent.search("#{@patent.invention_title} #{@patent.inventor} #{@patent.agent_name}", :without => {:id => @patent.id }, :match_mode => :any, :page => 1, :per_page => 5, :field_weights => { :invention_title =>10, :inventor => 15, :agent_name => 10 })
+    patents_related_inventor = Patent.search(" @inventor #{@patent.inventor}", :ignore_errors => true, :match_mode => :extended, :without => {:id => @patent.id },:order => "@random ASC", :page => 1, :per_page => 5)
+    if patents_related_inventor.length > 0 && @patent.inventor != "Not Given"
+      @patents_related_title = "Patent by same inventor"
+      @patents_related_result = patents_related_inventor
+    else
+      patents_related_agent = Patent.search(" @agent_name #{@patent.agent_name}", :ignore_errors => true, :match_mode => :extended, :without => {:id => @patent.id }, :order => "@random ASC", :page => 1, :per_page => 5) 
+      if patents_related_agent.length > 0
+        @patents_related_title = "Patent by same agent"
+        @patents_related_result = patents_related_agent
+      else
+        @patents_related_title = ""
+        @patents_related_result = []
+      end
+    end
     @title = @patent.invention_title
-    @meta_description = "A " + @patent.application_type + " patent application filed on " + @patent.filing_date.to_s + " credited to " + @patent.inventor
+    @meta_description = "A " + @patent.application_type + " patent application filed on " + @patent.filing_date.strftime("%d %B %Y") + " credited to " + @patent.inventor
+    @patents
   end
   
   def advanced_search

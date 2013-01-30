@@ -65,7 +65,7 @@ class PatentsController < ApplicationController
       search_query = params[:search] + " " + search_query unless params[:search].blank?
       if params[:patent][:created_at] != "" and params[:patent][:updated_at] != ""
         # @patents = Patent.search(search_query, :with => {:filing_date => Date.parse(params[:patent][:created_at].gsub(/, */, '-') )..Date.parse(params[:patent][:updated_at].gsub(/, */, '-') )}, :match_mode => :extended, :ignore_errors => true, :order => sort_column, :sort_mode => sort_direction).page(params[:page])
-        @patents = Patent.search(search_query, :with => {:filing_date => Date.parse(params[:patent][:created_at].gsub(/, */, '-') )..Date.parse(params[:patent][:updated_at].gsub(/, */, '-') )}, :match_mode => :extended, :ignore_errors => true, :order => sort_column, :sort_mode => sort_direction).page(params[:page])
+        @patents = Patent.search(search_query, :with => {:filing_date => Date.parse(params[:patent][:created_at])..Date.parse(params[:patent][:updated_at])}, :match_mode => :extended, :ignore_errors => true, :order => sort_column, :sort_mode => sort_direction).page(params[:page])
       else
         @patents = Patent.search(search_query, :match_mode => :extended, :ignore_errors => true, :order => sort_column, :sort_mode => sort_direction).page(params[:page])
       end
@@ -81,12 +81,12 @@ class PatentsController < ApplicationController
     @patents_related = Patent.search("#{@patent.invention_title} #{@patent.inventor} #{@patent.agent_name}", :without => {:id => @patent.id }, :match_mode => :any, :page => 1, :per_page => 5, :field_weights => { :invention_title =>10, :inventor => 15, :agent_name => 10 })
     patents_related_inventor = Patent.search(" @inventor #{@patent.inventor}", :ignore_errors => true, :match_mode => :extended, :without => {:id => @patent.id },:order => "@random ASC", :page => 1, :per_page => 5)
     if patents_related_inventor.length > 0 && @patent.inventor != "Not Given"
-      @patents_related_title = "Patent by same inventor"
+      @patents_related_title = "Patents by same inventor"
       @patents_related_result = patents_related_inventor
     else
       patents_related_agent = Patent.search(" @agent_name #{@patent.agent_name}", :ignore_errors => true, :match_mode => :extended, :without => {:id => @patent.id }, :order => "@random ASC", :page => 1, :per_page => 5) 
       if patents_related_agent.length > 0
-        @patents_related_title = "Patent by same agent"
+        @patents_related_title = "Patents by same agent"
         @patents_related_result = patents_related_agent
       else
         @patents_related_title = ""
